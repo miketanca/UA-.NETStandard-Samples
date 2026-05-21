@@ -152,15 +152,24 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Console">
       <Version>10.0.2</Version>
     </PackageReference>
-    <PackageReference Include="OPCFoundation.NetStandard.Opc.Ua.Core">
-      <Version>1.5.378.134</Version>
-    </PackageReference>
-    <PackageReference Include="OPCFoundation.NetStandard.Opc.Ua.Configuration">
-      <Version>1.5.378.134</Version>
-    </PackageReference>
-    <PackageReference Include="OPCFoundation.NetStandard.Opc.Ua.Server">
-      <Version>1.5.378.134</Version>
-    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\UA-.NETStandard\Libraries\Opc.Ua.Configuration\Opc.Ua.Configuration.csproj">
+      <Project>{55130c1f-4876-8c4c-6b52-c889037b28ff}</Project>
+      <Name>Opc.Ua.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\UA-.NETStandard\Libraries\Opc.Ua.Server\Opc.Ua.Server.csproj">
+      <Project>{bd5bae3d-2a44-bf4b-a96b-dcf66fcc1713}</Project>
+      <Name>Opc.Ua.Server</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\UA-.NETStandard\Stack\Opc.Ua.Core\Opc.Ua.Core.csproj">
+      <Project>{a72b287f-9fdf-8b6e-76f6-cfb8da2aef17}</Project>
+      <Name>Opc.Ua.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\UA-.NETStandard\Stack\Opc.Ua.Types\Opc.Ua.Types.csproj">
+      <Project>{59cd2c0d-3965-5d6f-1735-85f29586d314}</Project>
+      <Name>Opc.Ua.Types</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
