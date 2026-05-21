@@ -650,7 +650,7 @@ namespace Opc.Ua.Client.Controls
         /// <summary>
         /// Handles a click on the connect button.
         /// </summary>
-        private void Server_ConnectMI_Click(object sender, EventArgs e)
+        private async void Server_ConnectMI_Click(object sender, EventArgs e)
         {
             string serverUrl = UrlCB.Text;
 
@@ -663,31 +663,29 @@ namespace Opc.Ua.Client.Controls
 
             UpdateStatus(false, DateTime.Now, "Connecting [{0}]", serverUrl);
 
-            Task.Run((Func<Task>)(async () => {
-                try
+            try
+            {
+                await this.ConnectAsync(m_telemetry, serverUrl, useSecurity);
+            }
+            catch (ServiceResultException sre)
+            {
+                if (sre.StatusCode == StatusCodes.BadCertificateHostNameInvalid)
                 {
-                    await this.ConnectAsync(m_telemetry, serverUrl, useSecurity);
-                }
-                catch (ServiceResultException sre)
-                {
-                    if (sre.StatusCode == StatusCodes.BadCertificateHostNameInvalid)
+                    if (GuiUtils.HandleDomainCheckError(FindForm().Text, sre.Result))
                     {
-                        if (GuiUtils.HandleDomainCheckError(FindForm().Text, sre.Result))
-                        {
-                            DisableDomainCheck = true;
-                        }
-                    }
-                    else
-                    {
-                        // update status.
-                        UpdateStatus(true, DateTime.Now, "Connection failed! [{0}]", sre.Message);
+                        DisableDomainCheck = true;
                     }
                 }
-                catch (Exception exception)
+                else
                 {
-                    ClientUtils.HandleException(m_logger, this.Text, exception);
+                    // update status.
+                    UpdateStatus(true, DateTime.Now, "Connection failed! [{0}]", sre.Message);
                 }
-            }));
+            }
+            catch (Exception exception)
+            {
+                ClientUtils.HandleException(m_logger, this.Text, exception);
+            }
         }
 
         /// <summary>
