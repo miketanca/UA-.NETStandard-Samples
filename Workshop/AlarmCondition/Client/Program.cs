@@ -78,6 +78,8 @@ namespace Quickstarts.AlarmConditionClient
                 // check the application certificate.
                 application.CheckApplicationInstanceCertificatesAsync(false).AsTask().Wait();
 
+                application.ApplicationConfiguration.SecurityConfiguration.AutoAcceptUntrustedCertificates = true;
+
                 // run the application interactively.
                 Application.Run(new MainForm(application.ApplicationConfiguration, m_telemetry));
             }
