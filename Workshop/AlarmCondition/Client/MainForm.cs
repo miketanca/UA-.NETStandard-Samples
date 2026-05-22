@@ -66,7 +66,11 @@ namespace Quickstarts.AlarmConditionClient
             this.Icon = ClientUtils.GetAppIcon();
 
             ConnectServerCTRL.Configuration = m_configuration = configuration;
-            ConnectServerCTRL.ServerUrl = "opc.tcp://localhost:62544/Quickstarts/AlarmConditionServer";
+            ConnectServerCTRL.SetAvailableUrls([
+                "opc.tcp://localhost:62544/Quickstarts/AlarmConditionServer",
+                "opc.tcp://localhost:50000",
+            ]);
+            ConnectServerCTRL.ServerUrl = "opc.tcp://localhost:50000";
             this.Text = m_configuration.ApplicationName;
 
             // a table used to track event types.
