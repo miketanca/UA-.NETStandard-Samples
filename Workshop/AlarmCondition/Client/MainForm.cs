@@ -579,6 +579,8 @@ namespace Quickstarts.AlarmConditionClient
         }
         #endregion
 
+        private SemaphoreSlim m_lock = new SemaphoreSlim(1, 1);
+
         #region Event Handlers
         /// <summary>
         /// Updates the display with a new value for a monitored variable.
@@ -590,6 +592,8 @@ namespace Quickstarts.AlarmConditionClient
                 this.BeginInvoke(new MonitoredItemNotificationEventHandler(MonitoredItem_NotificationAsync), monitoredItem, e);
                 return;
             }
+
+            await m_lock.WaitAsync();
 
             try
             {
@@ -793,6 +797,10 @@ namespace Quickstarts.AlarmConditionClient
             catch (Exception exception)
             {
                 ClientUtils.HandleException(m_telemetry, this.Text, exception);
+            }
+            finally
+            {
+                m_lock.Release();
             }
         }
 
