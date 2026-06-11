@@ -69,6 +69,7 @@ namespace Quickstarts.AlarmConditionClient
             ConnectServerCTRL.SetAvailableUrls([
                 "opc.tcp://localhost:62544/Quickstarts/AlarmConditionServer",
                 "opc.tcp://localhost:50000",
+                "opc.tcp://localhost:62541/Quickstarts/ReferenceServer"
             ]);
             ConnectServerCTRL.ServerUrl = "opc.tcp://localhost:50000";
             this.Text = m_configuration.ApplicationName;
