@@ -122,6 +122,26 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\UA-.NETStandard\Libraries\Opc.Ua.Client\Opc.Ua.Client.csproj">
+      <Project>{1fca5856-2507-e775-33e2-e1b5f854676a}</Project>
+      <Name>Opc.Ua.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\UA-.NETStandard\Libraries\Opc.Ua.Configuration\Opc.Ua.Configuration.csproj">
+      <Project>{55130c1f-4876-8c4c-6b52-c889037b28ff}</Project>
+      <Name>Opc.Ua.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\UA-.NETStandard\Stack\Opc.Ua.Bindings.Https\Opc.Ua.Bindings.Https.csproj">
+      <Project>{3d6db2ec-8a2e-68d2-810a-46cbaa8fcbf5}</Project>
+      <Name>Opc.Ua.Bindings.Https</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\UA-.NETStandard\Stack\Opc.Ua.Core\Opc.Ua.Core.csproj">
+      <Project>{a72b287f-9fdf-8b6e-76f6-cfb8da2aef17}</Project>
+      <Name>Opc.Ua.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\UA-.NETStandard\Stack\Opc.Ua.Types\Opc.Ua.Types.csproj">
+      <Project>{59cd2c0d-3965-5d6f-1735-85f29586d314}</Project>
+      <Name>Opc.Ua.Types</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ClientControls.Net4\UA Client Controls.csproj">
       <Project>{a247d2ee-14fc-463d-a9ba-6cff1ef22b7a}</Project>
       <Name>UA Client Controls</Name>
@@ -130,18 +150,6 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Logging.Console">
       <Version>10.0.2</Version>
-    </PackageReference>
-    <PackageReference Include="OPCFoundation.NetStandard.Opc.Ua.Bindings.Https">
-      <Version>1.5.378.134</Version>
-    </PackageReference>
-    <PackageReference Include="OPCFoundation.NetStandard.Opc.Ua.Client">
-      <Version>1.5.378.134</Version>
-    </PackageReference>
-    <PackageReference Include="OPCFoundation.NetStandard.Opc.Ua.Configuration">
-      <Version>1.5.378.134</Version>
-    </PackageReference>
-    <PackageReference Include="OPCFoundation.NetStandard.Opc.Ua.Core">
-      <Version>1.5.378.134</Version>
     </PackageReference>
   </ItemGroup>
   <PropertyGroup>
