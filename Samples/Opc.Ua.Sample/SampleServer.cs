@@ -58,7 +58,7 @@ namespace Opc.Ua.Sample
 
             // it is up to the application to decide how to validate user identity tokens.
             // this function creates validator for X509 identity tokens.
-            CreateUserIdentityValidators(configuration);
+            //CreateUserIdentityValidators(configuration);
         }
 
         /// <summary>
